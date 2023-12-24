@@ -1,5 +1,6 @@
 import HomePage from '../../Components/user/HomePage/HomePage'
 import HomeNav from '../../Components/user/HomePage/HomeNav'
+import Footer from '../../Components/user/LandingPage/Footer'
 import { Helmet } from 'react-helmet';
 export default function Home() {
     return (
@@ -9,6 +10,7 @@ export default function Home() {
         </Helmet>
         <HomeNav/>
         <HomePage/>
+        <Footer />
       </>
     );
   }

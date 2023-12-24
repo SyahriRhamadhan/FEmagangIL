@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 // import Heroimage from '../../../public/background.png'
 const LoginPage =()=>{
     return(
-        <div >
+        <div style={{ backgroundColor: '#31304D', minHeight: '100vh' }}>
             <Helmet>
                 <title >Login Page</title>
             </Helmet>

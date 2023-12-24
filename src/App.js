@@ -5,6 +5,8 @@ import Landing from './Pages/Landing Page/LandingPage'
 import Homepage from './Pages/Home Page/HomePage'
 import Login from './Pages/Auth/LoginPage'
 import Register from './Pages/Auth/RegisterPage'
+import ProfilePage from './Pages/Profile/ProfilePage'
+import UpdateProfilePage from './Pages/Profile/UpdateProfile'
 import NavigateToHome from './Auth/NavigateToHome'
 import ProtectedToken from './Auth/ProtectedToken'
 function App() {
@@ -53,6 +55,18 @@ function App() {
               <NavigateToHome>
                 <Register users={users}/>
               </NavigateToHome>
+            }/>
+
+            <Route path='/profile' element={
+            <ProtectedToken>
+              <ProfilePage users={users}/>
+            </ProtectedToken>
+            }/>
+
+            <Route path='/profile/update_profile' element={
+            <ProtectedToken>
+              <UpdateProfilePage users={users}/>
+            </ProtectedToken>
             }/>
           </Routes>
         </Suspense>

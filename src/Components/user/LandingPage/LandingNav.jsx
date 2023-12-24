@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { FiAlignJustify } from "react-icons/fi";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function LnadingNav() {
+function LandingNav() {
   // eslint-disable-next-line no-unused-vars
   const [userLogin, setUserLogin] = useState(false);
   const token = localStorage.getItem("token");
@@ -13,7 +15,7 @@ function LnadingNav() {
   const role = localStorage.getItem("role");
 
   const navigate = useNavigate();
-//   const userRole = role === "admin"
+  //   const userRole = role === "admin"
   useEffect(() => {
     token ? setUserLogin(true) : setUserLogin(false);
   }, [token]);
@@ -26,30 +28,49 @@ function LnadingNav() {
     window.location.reload();
   };
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Profile" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Profile Info
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">ppp</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={logout}>
-              Logout
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      {[ 'lg'].map((expand) => (
+        <Navbar key={expand} style={{backgroundColor: '#31304D'}} expand={expand} className="bg-body-tertiary mb-3">
+          <Container fluid >
+            <Navbar.Brand href="/landing" style={{ color:'#F0ECE5'}} >Infinite Learning</Navbar.Brand>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} > 
+              <FiAlignJustify className='text-dark'/>
+            </Navbar.Toggle>
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              placement="end"
+              // className="bg-black"
+            >
+              <Offcanvas.Header closeButton >
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} style={{ color:'#F0ECE5'}}>
+                  Offcanvas
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav className="justify-content-end flex-grow-1 pe-3" >
+                  <Nav.Link style={{ color:'#F0ECE5'}} href="#action1">Home</Nav.Link>
+                  <Nav.Link style={{ color:'#F0ECE5'}} href="#action2">Link</Nav.Link>
+                  <NavDropdown
+                     title={<span style={{ color: '#F0ECE5' }}>Profile</span>}
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  >
+                    <NavDropdown.Item  href="/profile">Profile info</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item  onClick={logout}>
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </Nav>
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+      ))}
+    </>
   );
 }
 
-export default LnadingNav;
+export default LandingNav;
+
+

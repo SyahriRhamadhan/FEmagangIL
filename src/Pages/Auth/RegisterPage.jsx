@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 const RegisterPage =()=>{
     return(
-        <div>
+        <div style={{ backgroundColor: '#31304D', minHeight: '100vh' }}>
             <Helmet>
                 <title>Register Page</title>
             </Helmet>
