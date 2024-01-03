@@ -34,8 +34,8 @@ function Login() {
                 });
                 const user = response.data.data.role
                 if (user === "admin") {
-                    // navigate("/listorder");
-                    navigate("/landing");
+                    navigate("/dashboard");
+                    // navigate("/landing");
                 } else if (user === "member") {
                     navigate("/landing");
                 }

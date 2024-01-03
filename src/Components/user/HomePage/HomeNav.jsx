@@ -10,9 +10,9 @@ function HomeNav() {
   return (
     <>
       {[ 'lg'].map((expand) => (
-        <Navbar key={expand} style={{backgroundColor: '#31304D'}} expand={expand} className="bg-body-tertiary mb-3">
+        <Navbar key={expand} style={{backgroundColor: '#31304D'}} expand={expand} className="bg-body-tertiary">
           <Container fluid >
-            <Navbar.Brand href="/landing" style={{ color:'#F0ECE5'}} >Infinite Learning</Navbar.Brand>
+          <Navbar.Brand href="/landing" className='ms-3' style={{ color:'#F0ECE5'}} ><b>InfiniteCamp</b></Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} > 
               <FiAlignJustify className='text-dark'/>
             </Navbar.Toggle>
@@ -29,9 +29,9 @@ function HomeNav() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3" >
-                  <Nav.Link style={{ color:'#F0ECE5'}} href="#action1">Home</Nav.Link>
+                  {/* <Nav.Link style={{ color:'#F0ECE5'}} href="#action1">Home</Nav.Link> */}
                   {/* <Nav.Link>  */}
-                    <MDBBtn href='/login' className='text-black' style={{ backgroundColor: "#F0ECE5" }} >
+                    <MDBBtn href='/login' className='text-white' style={{ backgroundColor: "#F97316" }} >
                   Login/Register
                     </MDBBtn>
                   {/* </Nav.Link> */}

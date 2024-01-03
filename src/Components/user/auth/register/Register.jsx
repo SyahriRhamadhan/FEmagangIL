@@ -50,7 +50,7 @@ function Register() {
               <Form.Control type="password" placeholder="Password" onChange={setPassword} />
             </Form.Group>
             <Button className="text-center m-auto w-100" variant="primary" onClick={register}>
-              Sign-In
+              Register
             </Button>
             <p className="mt-2"> Already Have A Account?
               <a href="/login" style={{ color:'#F0ECE5'}} > Login</a>
